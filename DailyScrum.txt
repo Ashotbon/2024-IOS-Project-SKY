@@ -2,3 +2,5 @@
 Project planning 
 18/03/2024
 Watching tutorials ,looking for products that will be used.
+19/03/2024
+Summarizing the final structure of my application, what functionality I am expecting  to see at the end. Continuously, watching tutorials.
