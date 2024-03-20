@@ -4,3 +4,7 @@ Project planning
 Watching tutorials ,looking for products that will be used.
 19/03/2024
 Summarizing the final structure of my application, what functionality I am expecting  to see at the end. Continuously, watching tutorials.
+19/03/2024
+Started app development process 
+20/03/2024
+Creating an account on openweathermap.org to obtain API key for getting necessary information related to my app.
