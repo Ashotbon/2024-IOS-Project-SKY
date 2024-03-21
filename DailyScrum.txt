@@ -8,3 +8,5 @@ Summarizing the final structure of my application, what functionality I am expec
 Started app development process 
 20/03/2024
 Creating an account on openweathermap.org to obtain API key for getting necessary information related to my app.
+20/03/2024
+Main page other functions ,declaring stat variables, creating stacks, fetchWeatherData function, using URLsession to decod jason fils.
