@@ -12,3 +12,5 @@ Creating an account on openweathermap.org to obtain API key for getting necessar
 Main page other functions ,declaring stat variables, creating stacks, fetchWeatherData function, using URLsession to decod jason fils.
 21/03/2024
 Management of the data that comes with Jason file, to make a final logotype and logomark to show it as a splash screen when we lunch an app.
+21/03/2024
+Splash screen works
