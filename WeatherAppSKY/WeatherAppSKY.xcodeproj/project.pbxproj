@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A070EDC2BAD2545005E40CF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A070EDB2BAD2545005E40CF /* Launch Screen.storyboard */; };
 		7A71DB882BAA8F050068400C /* WeatherAppSKYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71DB872BAA8F050068400C /* WeatherAppSKYApp.swift */; };
 		7A71DB8A2BAA8F050068400C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71DB892BAA8F050068400C /* ContentView.swift */; };
 		7A71DB8C2BAA8F090068400C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A71DB8B2BAA8F090068400C /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A070EDB2BAD2545005E40CF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7A71DB842BAA8F050068400C /* WeatherAppSKY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAppSKY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A71DB872BAA8F050068400C /* WeatherAppSKYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppSKYApp.swift; sourceTree = "<group>"; };
 		7A71DB892BAA8F050068400C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		7A71DB7B2BAA8F050068400C = {
 			isa = PBXGroup;
 			children = (
+				7A070EDB2BAD2545005E40CF /* Launch Screen.storyboard */,
 				7A71DB862BAA8F050068400C /* WeatherAppSKY */,
 				7A71DB972BAA8F090068400C /* WeatherAppSKYTests */,
 				7A71DBA12BAA8F090068400C /* WeatherAppSKYUITests */,
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A070EDC2BAD2545005E40CF /* Launch Screen.storyboard in Resources */,
 				7A71DB8F2BAA8F090068400C /* Preview Assets.xcassets in Resources */,
 				7A71DB8C2BAA8F090068400C /* Assets.xcassets in Resources */,
 			);
@@ -431,6 +435,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -459,6 +464,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
