@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7A070EDC2BAD2545005E40CF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A070EDB2BAD2545005E40CF /* Launch Screen.storyboard */; };
+		7A070EDE2BADBFFB005E40CF /* AddLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A070EDD2BADBFFB005E40CF /* AddLocationView.swift */; };
 		7A71DB882BAA8F050068400C /* WeatherAppSKYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71DB872BAA8F050068400C /* WeatherAppSKYApp.swift */; };
 		7A71DB8A2BAA8F050068400C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71DB892BAA8F050068400C /* ContentView.swift */; };
 		7A71DB8C2BAA8F090068400C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A71DB8B2BAA8F090068400C /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		7A070EDB2BAD2545005E40CF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7A070EDD2BADBFFB005E40CF /* AddLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationView.swift; sourceTree = "<group>"; };
 		7A71DB842BAA8F050068400C /* WeatherAppSKY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAppSKY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A71DB872BAA8F050068400C /* WeatherAppSKYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppSKYApp.swift; sourceTree = "<group>"; };
 		7A71DB892BAA8F050068400C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				7A71DB872BAA8F050068400C /* WeatherAppSKYApp.swift */,
 				7A71DB892BAA8F050068400C /* ContentView.swift */,
 				7A71DBB12BAA913F0068400C /* WebView.swift */,
+				7A070EDD2BADBFFB005E40CF /* AddLocationView.swift */,
 				7A71DB8B2BAA8F090068400C /* Assets.xcassets */,
 				7A71DB8D2BAA8F090068400C /* Preview Content */,
 			);
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A71DBB22BAA913F0068400C /* WebView.swift in Sources */,
+				7A070EDE2BADBFFB005E40CF /* AddLocationView.swift in Sources */,
 				7A71DB8A2BAA8F050068400C /* ContentView.swift in Sources */,
 				7A71DB882BAA8F050068400C /* WeatherAppSKYApp.swift in Sources */,
 			);

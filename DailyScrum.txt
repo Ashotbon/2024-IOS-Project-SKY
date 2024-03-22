@@ -14,3 +14,5 @@ Main page other functions ,declaring stat variables, creating stacks, fetchWeath
 Management of the data that comes with Jason file, to make a final logotype and logomark to show it as a splash screen when we lunch an app.
 21/03/2024
 Splash screen works
+22/03/2024
+New screen AddLocationView created,working on it.
