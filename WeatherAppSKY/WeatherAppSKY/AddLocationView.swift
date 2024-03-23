@@ -23,25 +23,25 @@ struct AddLocationView: View {
             VStack {
                 SearchBar(text: $searchText, placeholder: "Enter the city or zip code")
                     .padding()
-
-                Button("Fetch Weathersss") {
-                    print("Fetching weather for city: \(searchText)")
-                    fetchWeatherData()
-                }
-                .padding()
-                .disabled(searchText.isEmpty)
-
-                if isLoading {
-                    ProgressView()
-                } else if let weather = weather {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Weather for \(searchText):")
-                            .font(.headline)
-                        Text("Temperature: \(weather.main.temp, specifier: "%.1f")°C")
-                        Text("Condition: \(weather.weather.first?.main ?? "N/A")")
-                    }
-                    .padding()
-                }
+//
+//                Button("Fetch Weathersss") {
+//                    print("Fetching weather for city: \(searchText)")
+//                    fetchWeatherData()
+//                }
+//                .padding()
+//                .disabled(searchText.isEmpty)
+//
+//                if isLoading {
+//                    ProgressView()
+//                } else if let weather = weather {
+//                    VStack(alignment: .leading, spacing: 10) {
+//                        Text("Weather for \(searchText):")
+//                            .font(.headline)
+//                        Text("Temperature: \(weather.main.temp, specifier: "%.1f")°C")
+//                        Text("Condition: \(weather.weather.first?.main ?? "N/A")")
+//                    }
+//                    .padding()
+//                }
                                 Button("Fetch Weathersss") {
                                     print("Fetching weather for city: \(searchText)")
                                     fetchWeatherData()

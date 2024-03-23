@@ -16,3 +16,5 @@ Management of the data that comes with Jason file, to make a final logotype and 
 Splash screen works
 22/03/2024
 New screen AddLocationView created,working on it.
+23/03/2024
+Implementation new swiftui SearchBar supportive functions or AddLocation screen
