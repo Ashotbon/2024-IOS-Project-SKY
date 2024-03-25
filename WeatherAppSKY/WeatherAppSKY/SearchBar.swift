@@ -25,7 +25,14 @@ struct SearchBar: UIViewRepresentable {
         return searchBar
     }
 
-   
+    func updateUIView(_ uiView: UISearchBar, context: Context) {
+        uiView.text = text
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
     class Coordinator: NSObject, UISearchBarDelegate {
         var parent: SearchBar
 

@@ -18,3 +18,5 @@ Splash screen works
 New screen AddLocationView created,working on it.
 23/03/2024
 Implementation new swiftui SearchBar supportive functions or AddLocation screen
+25/03/2024
+Creating a SideMenuView to see the list of locations. Meantime, make it possible to see on this list and a new location previously added by user.
