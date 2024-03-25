@@ -64,10 +64,18 @@ struct SideMenuView: View {
             .transition(.move(edge: .leading))
             .animation(.easeInOut(duration: 0.3), value: isShowing)
 
+            // Sign In View
+            .sheet(isPresented: $showingSignInView) {
+                SignInView()
+            }
+
+            // Edit Locations View
+            .sheet(isPresented: $showingEditView) {
+                EditLocationsView(locations: $locations)
             }
         }
     }
-
+}
 
 struct SideMenuView_Previews: PreviewProvider {
     static var previews: some View {
