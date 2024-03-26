@@ -19,6 +19,7 @@
 		7A71DBB22BAA913F0068400C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71DBB12BAA913F0068400C /* WebView.swift */; };
 		7AC288F42BAF37F600E6DFDF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC288F32BAF37F600E6DFDF /* SearchBar.swift */; };
 		7AC289072BB1C54A00E6DFDF /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC289062BB1C54A00E6DFDF /* SideMenuView.swift */; };
+		7AC2891B2BB274C300E6DFDF /* EditLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2891A2BB274C300E6DFDF /* EditLocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		7A71DBB12BAA913F0068400C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		7AC288F32BAF37F600E6DFDF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		7AC289062BB1C54A00E6DFDF /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		7AC2891A2BB274C300E6DFDF /* EditLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				7AC289062BB1C54A00E6DFDF /* SideMenuView.swift */,
 				7A71DB8B2BAA8F090068400C /* Assets.xcassets */,
 				7A71DB8D2BAA8F090068400C /* Preview Content */,
+				7AC2891A2BB274C300E6DFDF /* EditLocationView.swift */,
 			);
 			path = WeatherAppSKY;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				7A71DBB22BAA913F0068400C /* WebView.swift in Sources */,
 				7A070EDE2BADBFFB005E40CF /* AddLocationView.swift in Sources */,
 				7AC288F42BAF37F600E6DFDF /* SearchBar.swift in Sources */,
+				7AC2891B2BB274C300E6DFDF /* EditLocationView.swift in Sources */,
 				7A71DB8A2BAA8F050068400C /* ContentView.swift in Sources */,
 				7A71DB882BAA8F050068400C /* WeatherAppSKYApp.swift in Sources */,
 			);
