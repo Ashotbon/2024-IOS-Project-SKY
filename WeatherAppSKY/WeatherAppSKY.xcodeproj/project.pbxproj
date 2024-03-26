@@ -20,6 +20,7 @@
 		7AC288F42BAF37F600E6DFDF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC288F32BAF37F600E6DFDF /* SearchBar.swift */; };
 		7AC289072BB1C54A00E6DFDF /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC289062BB1C54A00E6DFDF /* SideMenuView.swift */; };
 		7AC2891B2BB274C300E6DFDF /* EditLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2891A2BB274C300E6DFDF /* EditLocationView.swift */; };
+		7AC2891E2BB310D700E6DFDF /* Loginview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2891D2BB310D700E6DFDF /* Loginview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		7AC288F32BAF37F600E6DFDF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		7AC289062BB1C54A00E6DFDF /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		7AC2891A2BB274C300E6DFDF /* EditLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLocationView.swift; sourceTree = "<group>"; };
+		7AC2891D2BB310D700E6DFDF /* Loginview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loginview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,15 +109,16 @@
 		7A71DB862BAA8F050068400C /* WeatherAppSKY */ = {
 			isa = PBXGroup;
 			children = (
+				7AC2891C2BB310A000E6DFDF /* View  */,
 				7A71DB872BAA8F050068400C /* WeatherAppSKYApp.swift */,
 				7A71DB892BAA8F050068400C /* ContentView.swift */,
 				7A71DBB12BAA913F0068400C /* WebView.swift */,
 				7A070EDD2BADBFFB005E40CF /* AddLocationView.swift */,
 				7AC288F32BAF37F600E6DFDF /* SearchBar.swift */,
 				7AC289062BB1C54A00E6DFDF /* SideMenuView.swift */,
+				7AC2891A2BB274C300E6DFDF /* EditLocationView.swift */,
 				7A71DB8B2BAA8F090068400C /* Assets.xcassets */,
 				7A71DB8D2BAA8F090068400C /* Preview Content */,
-				7AC2891A2BB274C300E6DFDF /* EditLocationView.swift */,
 			);
 			path = WeatherAppSKY;
 			sourceTree = "<group>";
@@ -143,6 +146,14 @@
 				7A71DBA42BAA8F090068400C /* WeatherAppSKYUITestsLaunchTests.swift */,
 			);
 			path = WeatherAppSKYUITests;
+			sourceTree = "<group>";
+		};
+		7AC2891C2BB310A000E6DFDF /* View  */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2891D2BB310D700E6DFDF /* Loginview.swift */,
+			);
+			path = "View ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 				7AC288F42BAF37F600E6DFDF /* SearchBar.swift in Sources */,
 				7AC2891B2BB274C300E6DFDF /* EditLocationView.swift in Sources */,
 				7A71DB8A2BAA8F050068400C /* ContentView.swift in Sources */,
+				7AC2891E2BB310D700E6DFDF /* Loginview.swift in Sources */,
 				7A71DB882BAA8F050068400C /* WeatherAppSKYApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

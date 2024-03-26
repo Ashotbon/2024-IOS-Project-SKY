@@ -22,3 +22,6 @@ Implementation new swiftui SearchBar supportive functions or AddLocation screen
 Creating a SideMenuView to see the list of locations. Meantime, make it possible to see on this list and a new location previously added by user.
 25/03/2024
 Implementation of EditLocationView 
+26/03/2024
+Implementation of loginview swifview file
+

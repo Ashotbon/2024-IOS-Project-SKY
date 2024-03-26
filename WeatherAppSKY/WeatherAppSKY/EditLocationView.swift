@@ -19,7 +19,20 @@ struct EditLocationsView: View {
                     Text(location)
                 }
                 .onDelete(perform: delete)
-      
+            }
+            .navigationBarTitle("Edit Locations")
+            .navigationBarItems(trailing: Button("Done") {
+                presentationMode.wrappedValue.dismiss()
+            })
+            .toolbar {
+                EditButton()
+            }
+        }
+    }
+    
+    private func delete(at offsets: IndexSet) {
+        locations.remove(atOffsets: offsets)
+    }
 }
 
 struct EditLocationsView_Previews: PreviewProvider {
