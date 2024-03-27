@@ -8,107 +8,136 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
+    
     @State private var weather: WeatherResponse?
-    @State private var city: String = "Laval"
+    @State private var city: String = "London"
     @State private var isLoading = true
+    @State private var showingSideMenu = false
+    @State private var showingAddLocationView = false
+    @State private var locations: [String] = ["London", "New York", "Tokyo"]
+
+    private let apiKey = "2e0c634311bb50a55aa1e01c3ae5198f"
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter
+    }()
 
     var body: some View {
-        ZStack {
-            // Background gradient
-            LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
+        GeometryReader { geometry in
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
 
-            ScrollView {
-                VStack(spacing: 20) {
-                    TextField("Enter city name", text: $city)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                        .onSubmit {
-                            fetchWeatherData()
+                VStack {
+                    HStack {
+                        Button(action: {
+                            withAnimation {
+                                showingSideMenu.toggle()
+                            }
+                        }) {
+                            Image(systemName: "line.horizontal.3")
+                                .foregroundColor(.white)
+                                .imageScale(.large)
+                                .padding()
                         }
 
-                    if let weather = weather {
+                        Spacer()
+
+                        Button(action: {
+                            showingAddLocationView = true
+                        }) {
+                            Image(systemName: "plus")
+                                .foregroundColor(.white)
+                                .imageScale(.large)
+                                .padding()
+                        }
+                    }
+                    .padding(.top, geometry.safeAreaInsets.top)
+                    .padding(.horizontal)
+
+                    ScrollView {
                         VStack(spacing: 20) {
-                            Text(city)
-                                .font(.largeTitle)
-                                .bold()
+                            TextField("Enter city name", text: $city)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding()
+                                .onSubmit {
+                                    fetchWeatherData()
+                                }
 
-                            Text("\(weather.main.temp, specifier: "%.0f")°C")
-                                .font(.system(size: 70))
-                                .bold()
+                            if isLoading {
+                                ProgressView()
+                            } else if let weather = weather {
+                                VStack(spacing: 20) {
+                                    Text(city)
+                                        .font(.largeTitle)
+                                        .bold()
 
-                            Text("\(weather.weather[0].main)")
-                                .font(.title)
+                                    Text("\(weather.main.temp, specifier: "%.1f")°C")
+                                        .font(.system(size: 70))
+                                        .bold()
+
+                                    Text(weather.weather.first?.main ?? "")
+                                        .font(.title)
+                                }
+                                .foregroundColor(.white)
+                                .padding()
+
+                                if let hourlyWeather = weather.hourly {
+                                    ForEach(hourlyWeather.prefix(10), id: \.dt) { hour in
+                                        HourlyWeatherCell(hour: dateFormatter.string(from: Date(timeIntervalSince1970: hour.dt)), temperature: hour.temp)
+                                    }
+                                }
+                            }
                         }
-                        .foregroundColor(.white)
-                        .padding()
-
-//                        if let coord = weather.coord {
-//                            let mapURL = URL(string: "https://openweathermap.org/weathermap?basemap=map&cities=false&layer=clouds&lat=\(coord.lat)&lon=\(coord.lon)&zoom=10")!
-//                            WebView(url: mapURL)
-//                                .frame(height: 200)
-//                                .cornerRadius(10)
-//                                .padding()
-//                        }
-                    } else if isLoading {
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                    } else {
-                        Text("Enter a city name to view the weather")
-                            .foregroundColor(.white)
-                            .font(.title)
                     }
                 }
+
+                if showingSideMenu {
+                    SideMenuView(isShowing: $showingSideMenu, locations: $locations)
+                }
             }
+            .onAppear {
+                fetchWeatherData()
+            }
+            .onChange(of: viewModel.userSession) {
+                           showingSideMenu = false
+                       }
         }
-        .onAppear {
-            fetchWeatherData()
+        .sheet(isPresented: $showingAddLocationView) {
+            AddLocationView(locations: $locations)
         }
     }
 
     func fetchWeatherData() {
         isLoading = true
-        let apiKey = "2e0c634311bb50a55aa1e01c3ae5198f"
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&units=metric&appid=\(apiKey)"
-            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) // Handle cities with spaces or special characters
+        let formattedCity = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(formattedCity)&units=metric&appid=\(apiKey)"
 
-        guard let url = URL(string: urlString!) else { return }
+        guard let url = URL(string: urlString) else {
+            isLoading = false
+            return
+        }
 
         URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                if let decodedResponse = try? JSONDecoder().decode(WeatherResponse.self, from: data) {
-                    DispatchQueue.main.async {
-                        self.weather = decodedResponse
-                        self.isLoading = false
-                    }
-                    return
-                }
-            }
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
             DispatchQueue.main.async {
-                self.isLoading = false
+                isLoading = false
+            }
+            
+            guard let data = data else {
+                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            print("Fetch successfully: \(data)")
+            if let decodedResponse = try? JSONDecoder().decode(WeatherResponse.self, from: data) {
+                DispatchQueue.main.async {
+                    self.weather = decodedResponse
+                }
             }
         }.resume()
     }
-}
-
-struct WeatherResponse: Codable {
-    var coord: Coord?
-    var main: Main
-    var weather: [Weather]
-}
-
-struct Coord: Codable {
-    var lon: Double
-    var lat: Double
-}
-
-struct Main: Codable {
-    var temp: Double
-}
-
-struct Weather: Codable {
-    var main: String
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -116,4 +145,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-

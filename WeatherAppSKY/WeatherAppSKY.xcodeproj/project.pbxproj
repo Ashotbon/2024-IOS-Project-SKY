@@ -23,6 +23,10 @@
 		7AC2891E2BB310D700E6DFDF /* Loginview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2891D2BB310D700E6DFDF /* Loginview.swift */; };
 		7AC289202BB338F800E6DFDF /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2891F2BB338F800E6DFDF /* WeatherResponse.swift */; };
 		7AC289222BB33A1E00E6DFDF /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC289212BB33A1D00E6DFDF /* RegistrationView.swift */; };
+		7AC7C12F2BB3BFE900DEAAEC /* Inputview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C12E2BB3BFE900DEAAEC /* Inputview.swift */; };
+		7AC7C1322BB3C07900DEAAEC /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C1312BB3C07900DEAAEC /* SettingsRowView.swift */; };
+		7AC7C1342BB3C18600DEAAEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AC7C1332BB3C18600DEAAEC /* GoogleService-Info.plist */; };
+		7AC7C1372BB3C80400DEAAEC /* authsigninApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C1362BB3C80400DEAAEC /* authsigninApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,10 @@
 		7AC2891D2BB310D700E6DFDF /* Loginview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loginview.swift; sourceTree = "<group>"; };
 		7AC2891F2BB338F800E6DFDF /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		7AC289212BB33A1D00E6DFDF /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		7AC7C12E2BB3BFE900DEAAEC /* Inputview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputview.swift; sourceTree = "<group>"; };
+		7AC7C1312BB3C07900DEAAEC /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		7AC7C1332BB3C18600DEAAEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7AC7C1362BB3C80400DEAAEC /* authsigninApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authsigninApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,8 @@
 				7AC2891A2BB274C300E6DFDF /* EditLocationView.swift */,
 				7AC2891F2BB338F800E6DFDF /* WeatherResponse.swift */,
 				7A71DB8B2BAA8F090068400C /* Assets.xcassets */,
+				7AC7C1352BB3C7DB00DEAAEC /* App */,
+				7AC7C12D2BB3BFA500DEAAEC /* Components */,
 				7A71DB8D2BAA8F090068400C /* Preview Content */,
 			);
 			path = WeatherAppSKY;
@@ -149,6 +159,7 @@
 			children = (
 				7A71DBA22BAA8F090068400C /* WeatherAppSKYUITests.swift */,
 				7A71DBA42BAA8F090068400C /* WeatherAppSKYUITestsLaunchTests.swift */,
+				7AC7C1332BB3C18600DEAAEC /* GoogleService-Info.plist */,
 			);
 			path = WeatherAppSKYUITests;
 			sourceTree = "<group>";
@@ -160,6 +171,23 @@
 				7AC289212BB33A1D00E6DFDF /* RegistrationView.swift */,
 			);
 			path = "View ";
+			sourceTree = "<group>";
+		};
+		7AC7C12D2BB3BFA500DEAAEC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7AC7C12E2BB3BFE900DEAAEC /* Inputview.swift */,
+				7AC7C1312BB3C07900DEAAEC /* SettingsRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7AC7C1352BB3C7DB00DEAAEC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7AC7C1362BB3C80400DEAAEC /* authsigninApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC7C1342BB3C18600DEAAEC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,10 +325,12 @@
 				7AC289072BB1C54A00E6DFDF /* SideMenuView.swift in Sources */,
 				7A71DBB22BAA913F0068400C /* WebView.swift in Sources */,
 				7A070EDE2BADBFFB005E40CF /* AddLocationView.swift in Sources */,
+				7AC7C12F2BB3BFE900DEAAEC /* Inputview.swift in Sources */,
 				7AC288F42BAF37F600E6DFDF /* SearchBar.swift in Sources */,
 				7AC2891B2BB274C300E6DFDF /* EditLocationView.swift in Sources */,
 				7A71DB8A2BAA8F050068400C /* ContentView.swift in Sources */,
 				7AC2891E2BB310D700E6DFDF /* Loginview.swift in Sources */,
+				7AC7C1322BB3C07900DEAAEC /* SettingsRowView.swift in Sources */,
 				7AC289202BB338F800E6DFDF /* WeatherResponse.swift in Sources */,
 				7A71DB882BAA8F050068400C /* WeatherAppSKYApp.swift in Sources */,
 				7AC289222BB33A1E00E6DFDF /* RegistrationView.swift in Sources */,
@@ -320,6 +351,7 @@
 			files = (
 				7A71DBA32BAA8F090068400C /* WeatherAppSKYUITests.swift in Sources */,
 				7A71DBA52BAA8F090068400C /* WeatherAppSKYUITestsLaunchTests.swift in Sources */,
+				7AC7C1372BB3C80400DEAAEC /* authsigninApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
