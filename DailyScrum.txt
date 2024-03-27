@@ -28,3 +28,4 @@ Implementation of loginview swifview file
 Implementind RegistrationView
 26/03/2024
 Creating DB in Firebase to connect to the project, first for user authentication.
+27/03/2024 implementation of ProfileView

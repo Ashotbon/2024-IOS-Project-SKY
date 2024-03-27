@@ -27,6 +27,7 @@
 		7AC7C1322BB3C07900DEAAEC /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C1312BB3C07900DEAAEC /* SettingsRowView.swift */; };
 		7AC7C1342BB3C18600DEAAEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AC7C1332BB3C18600DEAAEC /* GoogleService-Info.plist */; };
 		7AC7C1372BB3C80400DEAAEC /* authsigninApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C1362BB3C80400DEAAEC /* authsigninApp.swift */; };
+		7AC7C13B2BB494DB00DEAAEC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C13A2BB494DB00DEAAEC /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		7AC7C1312BB3C07900DEAAEC /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		7AC7C1332BB3C18600DEAAEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7AC7C1362BB3C80400DEAAEC /* authsigninApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authsigninApp.swift; sourceTree = "<group>"; };
+		7AC7C13A2BB494DB00DEAAEC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		7A71DB7B2BAA8F050068400C = {
 			isa = PBXGroup;
 			children = (
+				7AC7C1382BB494B800DEAAEC /* Core */,
 				7A070EDB2BAD2545005E40CF /* Launch Screen.storyboard */,
 				7A71DB862BAA8F050068400C /* WeatherAppSKY */,
 				7A71DB972BAA8F090068400C /* WeatherAppSKYTests */,
@@ -188,6 +191,22 @@
 				7AC7C1362BB3C80400DEAAEC /* authsigninApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		7AC7C1382BB494B800DEAAEC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7AC7C1392BB494C400DEAAEC /* Profile */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7AC7C1392BB494C400DEAAEC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7AC7C13A2BB494DB00DEAAEC /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC7C13B2BB494DB00DEAAEC /* ProfileView.swift in Sources */,
 				7A71DBA32BAA8F090068400C /* WeatherAppSKYUITests.swift in Sources */,
 				7A71DBA52BAA8F090068400C /* WeatherAppSKYUITestsLaunchTests.swift in Sources */,
 				7AC7C1372BB3C80400DEAAEC /* authsigninApp.swift in Sources */,
