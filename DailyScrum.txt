@@ -24,4 +24,7 @@ Creating a SideMenuView to see the list of locations. Meantime, make it possible
 Implementation of EditLocationView 
 26/03/2024
 Implementation of loginview swifview file
-
+26/03/2024
+Implementind RegistrationView
+26/03/2024
+Creating DB in Firebase to connect to the project, first for user authentication.
