@@ -75,7 +75,7 @@ struct ContentView: View {
                                         .font(.largeTitle)
                                         .bold()
 
-                                    Text("\(weather.main.temp, specifier: "%.1f")°C")
+                                    Text("\(weather.main.temp, specifier: "%.f")°C")
                                         .font(.system(size: 70))
                                         .bold()
 
