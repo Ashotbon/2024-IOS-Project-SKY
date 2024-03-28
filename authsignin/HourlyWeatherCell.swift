@@ -1,9 +1,4 @@
-//
-//  HourlyWeatherCell.swift
-//  WeatherApp
-//
-//  Created by Ashot Harutyunyan on 2024-03-18.
-//
+
 import SwiftUI
 
 struct HourlyWeatherCell: View {
