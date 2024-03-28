@@ -1,9 +1,3 @@
-//
-//  WeatherResponse.swift
-//  WeatherApp
-//
-//  Created by Ashot Harutyunyan on 2024-03-12.
-//
 
 
 import Foundation
