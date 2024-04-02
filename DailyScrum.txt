@@ -30,3 +30,6 @@ Implementind RegistrationView
 Creating DB in Firebase to connect to the project, first for user authentication.
 27/03/2024 implementation of ProfileView
 28/03/2024 working on connectivity of database
+02/03/2024 “Add location “ button will automatically add new city in Firebase by adding a new collection called location.
+02/03/2024
+In case of sign in or sign out the list must get updated in stead of passing the data from view to view I have to use the function of db to fetch locations data.
