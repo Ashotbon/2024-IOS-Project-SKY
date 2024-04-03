@@ -11,14 +11,7 @@ struct HourlyWeatherResponse: Codable {
     let list: [HourlyForecast]
 }
 
-//struct HourlyForecast: Codable, Identifiable {
-//    let dt: Int
-//    let main: Main
-//    let weather: [Weather]
-//    let dt_txt: String
-//    
-//    var id: Int { dt } // Using the datetime as a unique ID
-//}
+
 struct HourlyForecast: Codable, Identifiable {
     let dt: Int
     let main: Main
@@ -27,14 +20,14 @@ struct HourlyForecast: Codable, Identifiable {
     
     var id: Int { dt } // Using the datetime as a unique ID
 
-    // Computed property to get the hour
+    // Computed property to get the hour in "HH:00" format
     var hour: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.timeZone = TimeZone(secondsFromGMT: 0) // Adjust timezone if necessary
 
         if let date = formatter.date(from: dt_txt) {
-            formatter.dateFormat = "HH" // Format for hour
+            formatter.dateFormat = "HH:00" // Format for hour in "HH:00" format
             return formatter.string(from: date)
         }
 
@@ -137,7 +130,7 @@ struct ContentView: View {
                                     LazyHStack {
                                         ForEach(hourlyWeather) { weather in
                                             VStack {
-                                                Text("\(weather.hour)h") // Display the hour
+                                                Text("\(weather.hour)") // Display the hour
                                                 Text("\(weather.main.temp, specifier: "%.0f")°C")
                                                 Text(weather.weather.first?.description ?? "")
                                                 Image(systemName: "cloud") // Ideally, use an appropriate icon based on `weather.weather.icon`
