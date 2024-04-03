@@ -18,6 +18,7 @@ protocol AuthenticationFormProtocol{
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var locations: [Location] = []
 
     init() {
         self.userSession = Auth.auth().currentUser
@@ -25,13 +26,24 @@ class AuthViewModel: ObservableObject {
         Task {
             await fetchUser()
         }
+        
     }
+    
+    func fetchLocations() async {
+        guard let uid = userSession?.uid else { return }
 
+        let query = Firestore.firestore().collection("locations").whereField("userId", isEqualTo: uid)
+        let snapshot = try? await query.getDocuments()
+        self.locations = snapshot?.documents.compactMap { try? $0.data(as: Location.self) } ?? []
+    }
+    
     func signIn(withEmail email: String, password: String) async throws {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
-           await fetchUser()
+            await fetchUser()
+            await fetchLocations()
+            print("DEBUG: Locations after signing in:", self.locations)
         } catch {
             print ("DEBUG: Faild to log in with error \(error.localizedDescription)")
             
@@ -44,8 +56,22 @@ class AuthViewModel: ObservableObject {
             self.userSession = result.user
             let user = User(id: result.user.uid, fullname: fullname, email: email)
             let encodedUser = try Firestore.Encoder().encode(user)
-            try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+//            try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+            
+            
+            let usersRef = Firestore.firestore().collection("users").document(user.id)
+                    try await usersRef.setData(encodedUser)
+
+                    // Optionally initialize locations for the user
+                    let initialLocation = Location(id: UUID().uuidString, name: "Default Location", userId: user.id)
+                    let encodedLocation = try Firestore.Encoder().encode(initialLocation)
+                    
+                    // Save initial location data to Firestore
+                    let locationsRef = Firestore.firestore().collection("locations").document(initialLocation.id)
+                    try await locationsRef.setData(encodedLocation)
+            
             await fetchUser()
+            await fetchLocations()  // Fetch locations for the new user
         } catch {
             print("DEBUG: Failed to create user with error \(error.localizedDescription)")
         }
@@ -56,6 +82,7 @@ class AuthViewModel: ObservableObject {
             try Auth.auth().signOut()// signs out user on backend
             self.userSession = nil // wipes out user session and takes us back to login screen
             self.currentUser = nil // wipes out current user data model
+            locations = []
         }catch{
             print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
         }

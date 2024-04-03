@@ -16,7 +16,8 @@ struct ContentView: View {
     @State private var isLoading = true
     @State private var showingSideMenu = false
     @State private var showingAddLocationView = false
-    @State private var locations: [String] = ["London", "New York", "Tokyo"]
+    @State private var locationNames: [String] = []
+//    @State private var locations: [String] = ["London", "New York", "Tokyo"]
 
     private let apiKey = "2e0c634311bb50a55aa1e01c3ae5198f"
     private let dateFormatter: DateFormatter = {
@@ -75,7 +76,7 @@ struct ContentView: View {
                                         .font(.largeTitle)
                                         .bold()
 
-                                    Text("\(weather.main.temp, specifier: "%.f")°C")
+                                    Text("\(weather.main.temp, specifier: "%.1f")°C")
                                         .font(.system(size: 70))
                                         .bold()
 
@@ -95,9 +96,10 @@ struct ContentView: View {
                     }
                 }
 
+         
                 if showingSideMenu {
-                    SideMenuView(isShowing: $showingSideMenu, locations: $locations)
-                }
+                                  SideMenuView(isShowing: $showingSideMenu)
+                              }
             }
             .onAppear {
                 fetchWeatherData()
@@ -107,8 +109,8 @@ struct ContentView: View {
                        }
         }
         .sheet(isPresented: $showingAddLocationView) {
-            AddLocationView(locations: $locations)
-        }
+                   AddLocationView(locations: $locationNames)
+               }
     }
 
     func fetchWeatherData() {

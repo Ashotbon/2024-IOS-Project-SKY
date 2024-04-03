@@ -10,22 +10,11 @@ import SwiftUI
 struct Loginview: View {
     @State private var email = ""
     @State private var password = ""
-    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
         NavigationStack{
             VStack {
-                Button(action: {
-                                  dismiss()  // Use the dismiss action to close the view
-                              })  {
-                                  Image(systemName: "arrow.left")
-                                      .foregroundColor(.black)
-                                      .imageScale(.large)
-                        
-                              }
-
-                              Spacer()
                 //image
                 Image ("SkyLogo" )
                     .resizable()

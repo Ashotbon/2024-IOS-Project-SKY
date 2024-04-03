@@ -35,6 +35,7 @@
 		7AC289172BB24F6F00E6DFDF /* HourlyWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC289162BB24F6F00E6DFDF /* HourlyWeatherCell.swift */; };
 		7AC289192BB24F7400E6DFDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC289182BB24F7400E6DFDF /* ContentView.swift */; };
 		7AC289282BB39B8100E6DFDF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC289272BB39B8100E6DFDF /* Launch Screen.storyboard */; };
+		7AC7C13F2BBCD8FA00DEAAEC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C13E2BBCD8FA00DEAAEC /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		7AC289162BB24F6F00E6DFDF /* HourlyWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyWeatherCell.swift; sourceTree = "<group>"; };
 		7AC289182BB24F7400E6DFDF /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7AC289272BB39B8100E6DFDF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7AC7C13E2BBCD8FA00DEAAEC /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		7A070EEA2BADDEAF005E40CF /* authsignin */ = {
 			isa = PBXGroup;
 			children = (
+				7AC7C13E2BBCD8FA00DEAAEC /* Location.swift */,
 				7AC289182BB24F7400E6DFDF /* ContentView.swift */,
 				7AC289142BB24F6900E6DFDF /* SideMenuView.swift */,
 				7AC289162BB24F6F00E6DFDF /* HourlyWeatherCell.swift */,
@@ -403,6 +406,7 @@
 				7AC289132BB24F6400E6DFDF /* WeatherApp.swift in Sources */,
 				7AC289152BB24F6900E6DFDF /* SideMenuView.swift in Sources */,
 				7AC289112BB24F5E00E6DFDF /* EditLocationsView.swift in Sources */,
+				7AC7C13F2BBCD8FA00DEAAEC /* Location.swift in Sources */,
 				7A070F202BADED02005E40CF /* Inputview.swift in Sources */,
 				7A070EEE2BADDEAF005E40CF /* ContentView1.swift in Sources */,
 				7A070EEC2BADDEAF005E40CF /* authsigninApp.swift in Sources */,
