@@ -44,3 +44,4 @@ working on connectivity of database
 03/04/2024
 .Implementation of hourly weather forecast 
 .Using an Api for hourly weather data managing
+.Ask for  current location when open the app

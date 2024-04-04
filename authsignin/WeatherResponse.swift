@@ -5,8 +5,10 @@ import Foundation
 struct WeatherResponse: Codable {
     var coord: Coord
     var main: Main
+    let name: String
     var weather: [Weather]
     var hourly: [Hourly]?
+    
 
     struct Coord: Codable {
         var lon: Double
