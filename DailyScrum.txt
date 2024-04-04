@@ -45,3 +45,6 @@ working on connectivity of database
 .Implementation of hourly weather forecast 
 .Using an Api for hourly weather data managing
 .Ask for  current location when open the app
+04/04/2024
+.show the current location's weather on main view
+.show icons based on the weather conditions.

@@ -132,10 +132,21 @@ struct ContentView: View {
                                                                     Text("\(weather.hour)") // Display the hour
                                                                     Text("\(weather.main.temp, specifier: "%.0f")°C")
                                                                     Text(weather.weather.first?.description ?? "")
-                                                                    Image(systemName: "cloud") // Ideally, use an appropriate icon based on `weather.weather.icon`
+                                                                    if let iconName = weather.weather.first?.icon {
+                                                                                  Image(iconName) // Load the image from the asset catalog using the icon code
+                                                                                      .resizable()
+                                                                                      .scaledToFit()
+                                                                                      .frame(width: 50, height: 50)
+                                                                              } else {
+                                                                                  Image(systemName: "questionmark.circle") // Fallback icon
+                                                                                      .resizable()
+                                                                                      .scaledToFit()
+                                                                                      .frame(width: 50, height: 50)
+                                                                              }
+                                                                        .padding()
                                                                 }
                                                                 .frame(width: 100, height: 100)
-                                                                .background(Color.gray.opacity(0.3))
+                                                                .background(Color.blue.opacity(0.3))
                                                                 .cornerRadius(12)
                                                             }
                                                         }
@@ -172,6 +183,8 @@ struct ContentView: View {
    
         let urlString = "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&units=metric&appid=\(apiKey)"
  
+        
+        print (urlString)
         guard let url = URL(string: urlString) else {
             print("Invalid URL for hourly weather data")
             return
