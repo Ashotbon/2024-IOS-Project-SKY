@@ -48,3 +48,6 @@ working on connectivity of database
 04/04/2024
 .show the current location's weather on main view
 .show icons based on the weather conditions.
+05/04/2024
+.Make possible to go back and to main view from city list page
+.On click on the city list item (city name) to open appropriate city weather on the main view
