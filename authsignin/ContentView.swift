@@ -128,27 +128,27 @@ struct ContentView: View {
                                                     ScrollView(.horizontal, showsIndicators: false) {
                                                         LazyHStack {
                                                             ForEach(hourlyWeather) { weather in
-                                                                VStack {
-                                                                    Text("\(weather.hour)") // Display the hour
-                                                                    Text("\(weather.main.temp, specifier: "%.0f")°C")
-                                                                    Text(weather.weather.first?.description ?? "")
-                                                                    if let iconName = weather.weather.first?.icon {
-                                                                                  Image(iconName) // Load the image from the asset catalog using the icon code
-                                                                                      .resizable()
-                                                                                      .scaledToFit()
-                                                                                      .frame(width: 50, height: 50)
-                                                                              } else {
-                                                                                  Image(systemName: "questionmark.circle") // Fallback icon
-                                                                                      .resizable()
-                                                                                      .scaledToFit()
-                                                                                      .frame(width: 50, height: 50)
-                                                                              }
-                                                                        .padding()
-                                                                }
-                                                                .frame(width: 100, height: 100)
-                                                                .background(Color.blue.opacity(0.3))
-                                                                .cornerRadius(12)
-                                                            }
+                                                                     VStack {
+                                                                         Text("\(weather.hour)") // Display the hour
+                                                                         Text("\(weather.main.temp, specifier: "%.0f")°C")
+                                                                         Text(weather.weather.first?.description ?? "")
+                                                                         if let iconName = weather.weather.first?.icon {
+                                                                             Image(iconName) // Load the image from the asset catalog using the icon code
+                                                                                 .resizable()
+                                                                                 .scaledToFit()
+                                                                                 .frame(width: 50, height: 50)
+                                                                         } else {
+                                                                             Image(systemName: "questionmark.circle") // Fallback icon
+                                                                                 .resizable()
+                                                                                 .scaledToFit()
+                                                                                 .frame(width: 50, height: 50)
+                                                                         }
+                                                                     }
+                                                                     .frame(width: 80, height: 150) // Adjust width and height here
+                                                                     .background(Color.blue.opacity(0.3))
+                                                                     .cornerRadius(12)
+                                                                     .padding(4) // Add padding around each card
+                                                                 }
                                                         }
                                                     }
                                                     .padding(.horizontal)
