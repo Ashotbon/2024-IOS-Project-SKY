@@ -51,3 +51,6 @@ working on connectivity of database
 05/04/2024
 .Make possible to go back and to main view from city list page
 .On click on the city list item (city name) to open appropriate city weather on the main view
+07/04/2024
+.Implementation new wether icons 
+.modification other codes

@@ -11,11 +11,20 @@ struct Loginview: View {
     @State private var email = ""
     @State private var password = ""
     @EnvironmentObject var viewModel : AuthViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        NavigationStack{
-            VStack {
-                //image
+            NavigationStack {
+                VStack {
+                    HStack {
+                        Button("Cancel") {
+                            dismiss()  // Dismiss the view
+                        }
+                        .foregroundColor(.blue)
+                        .padding()
+
+                        Spacer()
+                    }
                 Image ("SkyLogo" )
                     .resizable()
                     .scaledToFill()

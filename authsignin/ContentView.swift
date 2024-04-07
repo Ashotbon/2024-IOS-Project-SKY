@@ -18,16 +18,14 @@ struct HourlyForecast: Codable, Identifiable {
     let weather: [Weather]
     let dt_txt: String
     
-    var id: Int { dt } // Using the datetime as a unique ID
- 
-    // Computed property to get the hour in "HH:00" format
+    var id: Int { dt }
     var hour: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0) // Adjust timezone if necessary
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
  
         if let date = formatter.date(from: dt_txt) {
-            formatter.dateFormat = "HH:00" // Format for hour in "HH:00" format
+            formatter.dateFormat = "HH:00"
             return formatter.string(from: date)
         }
  
@@ -56,6 +54,7 @@ struct ContentView: View {
     @State private var showingAddLocationView = false
     @State private var locationNames: [String] = []
     @State private var hourlyWeather: [HourlyForecast] = []
+    @State private var selectedCity: String = ""
  
  
     private let apiKey = "2e0c634311bb50a55aa1e01c3ae5198f"
@@ -66,6 +65,7 @@ struct ContentView: View {
     }()
  
     var body: some View {
+    
         GeometryReader { geometry in
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .top, endPoint: .bottom)
@@ -128,26 +128,7 @@ struct ContentView: View {
                                                     ScrollView(.horizontal, showsIndicators: false) {
                                                         LazyHStack {
                                                             ForEach(hourlyWeather) { weather in
-                                                                     VStack {
-                                                                         Text("\(weather.hour)") // Display the hour
-                                                                         Text("\(weather.main.temp, specifier: "%.0f")°C")
-                                                                         Text(weather.weather.first?.description ?? "")
-                                                                         if let iconName = weather.weather.first?.icon {
-                                                                             Image(iconName) // Load the image from the asset catalog using the icon code
-                                                                                 .resizable()
-                                                                                 .scaledToFit()
-                                                                                 .frame(width: 50, height: 50)
-                                                                         } else {
-                                                                             Image(systemName: "questionmark.circle") // Fallback icon
-                                                                                 .resizable()
-                                                                                 .scaledToFit()
-                                                                                 .frame(width: 50, height: 50)
-                                                                         }
-                                                                     }
-                                                                     .frame(width: 80, height: 150) // Adjust width and height here
-                                                                     .background(Color.blue.opacity(0.3))
-                                                                     .cornerRadius(12)
-                                                                     .padding(4) // Add padding around each card
+                                                                HourlyWeatherCard(weather: weather)
                                                                  }
                                                         }
                                                     }
@@ -159,7 +140,12 @@ struct ContentView: View {
 
          
                 if showingSideMenu {
-                                  SideMenuView(isShowing: $showingSideMenu)
+//                                  SideMenuView(isShowing: $showingSideMenu)
+                    SideMenuView(isShowing: $showingSideMenu, selectedCity: $selectedCity)
+                               .onChange(of: selectedCity) { newValue in
+                                   city = newValue
+                                   fetchWeatherData(cityName: newValue)
+                               }
                               }
             }
             .onAppear {
@@ -218,36 +204,6 @@ struct ContentView: View {
     }
 
 
-
-//    func fetchWeatherData() {
-//        isLoading = true
-//        let formattedCity = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
-//        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(formattedCity)&units=metric&appid=\(apiKey)"
-//
-//        guard let url = URL(string: urlString) else {
-//            isLoading = false
-//            return
-//        }
-//
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            DispatchQueue.main.async {
-//                isLoading = false
-//            }
-//            
-//            guard let data = data else {
-//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
-//                return
-//            }
-//            
-//            if let decodedResponse = try? JSONDecoder().decode(WeatherResponse.self, from: data) {
-//                DispatchQueue.main.async {
-//                    self.weather = decodedResponse
-//                    self.fetchHourlyWeatherData(lat: decodedResponse.coord.lat, lon: decodedResponse.coord.lon)
-//                    print("Fetch successfully: \(decodedResponse)")
-//                }
-//            }
-//        }.resume()
-//    }
     func fetchWeatherData(cityName: String? = nil) {
         isLoading = true
  

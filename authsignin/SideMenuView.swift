@@ -6,6 +6,8 @@ import SwiftUI
 struct SideMenuView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @Binding var isShowing: Bool
+    @Binding var selectedCity: String
+
 
     @State private var showingEditView = false
     @State private var showingProfileView = false
@@ -15,30 +17,44 @@ struct SideMenuView: View {
         ZStack {
             // Background dimming
             if isShowing {
-                Color.black.opacity(0.5)
-                    .edgesIgnoringSafeArea(.all)
-                    .onTapGesture {
-                        withAnimation {
-                            isShowing = false
-                        }
-                    }
-            }
+                          Color.black.opacity(0.5)
+                              .edgesIgnoringSafeArea(.all)
+                              .onTapGesture {
+                                  withAnimation {
+                                      isShowing = false
+                                  }
+                              }
+                      }
 
-            // Side menu content
-            VStack(alignment: .leading) {
-                if let user = viewModel.currentUser {
-                    Button(user.fullname) {
-                        showingProfileView = true
-                    }
-                    .foregroundColor(.blue)
-                    .padding()
-                } else {
-                    Button("Sign in") {
-                        showingLoginView = true
-                    }
-                    .foregroundColor(.blue)
-                    .padding()
-                }
+                      // Side menu content
+                      VStack(alignment: .leading) {
+                          HStack {
+                              if let user = viewModel.currentUser {
+                                  Button(user.fullname) {
+                                      showingProfileView = true
+                                  }
+                                  .foregroundColor(.blue)
+                              } else {
+                                  Button("Sign in") {
+                                      showingLoginView = true
+                                  }
+                                  .foregroundColor(.blue)
+                              }
+
+                              Spacer()
+
+                              Button(action: {
+                                  withAnimation {
+                                      isShowing = false
+                                  }
+                              }) {
+                                  Image(systemName: "xmark")
+                                      .foregroundColor(.blue)
+                              }
+                              .padding(.trailing)
+                          }
+                          .padding()
+
 
                 Divider()
 
@@ -49,8 +65,15 @@ struct SideMenuView: View {
                         .padding(.leading)
 
                     ForEach(viewModel.locations, id: \.id) { location in
-                        Text(location.name)
-                            .padding()
+                        Button(action: {
+                                               selectedCity = location.name
+                                               withAnimation {
+                                                   isShowing = false
+                                               }
+                                           }) {
+                                               Text(location.name)
+                                                   .padding()
+                                           }
                     }
 
                     Button("Edit") {
