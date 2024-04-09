@@ -36,6 +36,7 @@
 		7AC289282BB39B8100E6DFDF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC289272BB39B8100E6DFDF /* Launch Screen.storyboard */; };
 		7AC7C13F2BBCD8FA00DEAAEC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C13E2BBCD8FA00DEAAEC /* Location.swift */; };
 		7AC7C1422BBE2BC900DEAAEC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C1412BBE2BC900DEAAEC /* LocationManager.swift */; };
+		7AC7C1442BC358F500DEAAEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C1432BC358F500DEAAEC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		7AC7C13E2BBCD8FA00DEAAEC /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7AC7C1402BBE2A7C00DEAAEC /* -024-IOS-Project-SKY-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-024-IOS-Project-SKY-Info.plist"; sourceTree = "<group>"; };
 		7AC7C1412BBE2BC900DEAAEC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7AC7C1432BC358F500DEAAEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				7A070EEF2BADDEB1005E40CF /* Assets.xcassets */,
 				7AC288F72BB07D6200E6DFDF /* GoogleService-Info.plist */,
 				7A070EF12BADDEB1005E40CF /* Preview Content */,
+				7AC7C1432BC358F500DEAAEC /* Constants.swift */,
 			);
 			path = authsignin;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A070F1E2BADE2F8005E40CF /* Loginview.swift in Sources */,
+				7AC7C1442BC358F500DEAAEC /* Constants.swift in Sources */,
 				7AC289152BB24F6900E6DFDF /* SideMenuView.swift in Sources */,
 				7AC289112BB24F5E00E6DFDF /* EditLocationsView.swift in Sources */,
 				7AC7C13F2BBCD8FA00DEAAEC /* Location.swift in Sources */,

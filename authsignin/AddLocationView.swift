@@ -3,12 +3,12 @@ import FirebaseFirestore
 
 struct AddLocationView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var viewModel: AuthViewModel // Use the AuthViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
     @Binding var locations: [String]
+
     @State private var searchText = ""
     @State private var isLoading = false
-
-    let apiKey = "2e0c634311bb50a55aa1e01c3ae5198f"
+    @State private var showingLocationError = false
 
     var body: some View {
         NavigationView {
@@ -16,11 +16,17 @@ struct AddLocationView: View {
                 SearchBar(text: $searchText, placeholder: "Enter the city or zip code")
                     .padding()
 
+                if showingLocationError {
+                    Text("Location not found. Please try again.")
+                        .foregroundColor(.red)
+                        .padding()
+                }
+
                 Button("Add Location") {
                     print("Adding location for city: \(searchText)")
                     Task {
-                                           await addLocation()
-                                       }
+                        await addLocation()
+                    }
                 }
                 .padding()
                 .disabled(searchText.isEmpty)
@@ -34,34 +40,46 @@ struct AddLocationView: View {
         }
         .onAppear {
             searchText = ""
+            showingLocationError = false
         }
     }
 
-    func addLocation() async{
+    func addLocation() async {
         guard !searchText.isEmpty, let userId = viewModel.userSession?.uid else {
             return
         }
-        
-        let location = Location(id: UUID().uuidString, name: searchText, userId: userId)
-        let locationRef = Firestore.firestore().collection("locations").document(location.id)
-        
-        do {
-            try locationRef.setData(from: location)
-            locations.append(searchText)
-            print("Location added: \(searchText)")
-            await viewModel.fetchLocations()
-        } catch let error {
-            print("Error saving location to Firestore: \(error)")
+
+        let formattedCity = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+        let urlString = "\(K.baseURL)weather?q=\(formattedCity)&appid=\(K.apiKey)"
+
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL for city \(searchText)")
+            return
         }
 
-        presentationMode.wrappedValue.dismiss()
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let _ = try JSONDecoder().decode(WeatherResponse.self, from: data)
+
+            let location = Location(id: UUID().uuidString, name: searchText, userId: userId)
+            let locationRef = Firestore.firestore().collection("locations").document(location.id)
+
+            try locationRef.setData(from: location)
+            locations.append(searchText)
+            await viewModel.fetchLocations()
+
+            presentationMode.wrappedValue.dismiss()
+            showingLocationError = false
+        } catch {
+            print("Error fetching city data or saving location: \(error)")
+            showingLocationError = true
+        }
     }
-    
 }
 
 struct AddLocationView_Previews: PreviewProvider {
     static var previews: some View {
         AddLocationView(locations: .constant(["London", "New York"]))
-            .environmentObject(AuthViewModel()) // Add this to ensure the preview works
+            .environmentObject(AuthViewModel())
     }
 }
