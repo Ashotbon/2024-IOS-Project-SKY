@@ -54,5 +54,7 @@ working on connectivity of database
 07/04/2024
 .Implementation new wether icons 
 .modification other codes
-00/04/2024
-.changes on the edit location will effect on the sidemen list
+08/04/2024
+.changes on the edit location will effect on the sidemenu list
+09/04/2024
+.to make a forgot password page
