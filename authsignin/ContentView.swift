@@ -6,6 +6,7 @@
 //
  
 import SwiftUI
+
  
 struct HourlyWeatherResponse: Codable {
     let list: [HourlyForecast]
@@ -56,8 +57,6 @@ struct ContentView: View {
     @State private var hourlyWeather: [HourlyForecast] = []
     @State private var selectedCity: String = ""
  
- 
-    private let apiKey = "2e0c634311bb50a55aa1e01c3ae5198f"
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
@@ -167,7 +166,7 @@ struct ContentView: View {
     }
     func fetchHourlyWeatherData(lat: Double, lon: Double) {
    
-        let urlString = "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&units=metric&appid=\(apiKey)"
+        let urlString = "\(K.baseURL)forecast?lat=\(lat)&lon=\(lon)&units=metric&appid=\(K.apiKey)"
  
         
         print (urlString)
@@ -210,14 +209,14 @@ struct ContentView: View {
         if let cityName = cityName, !cityName.isEmpty {
             // Fetch weather by city name
             let formattedCity = cityName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
-            let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(formattedCity)&units=metric&appid=\(apiKey)"
+            let urlString = "\(K.baseURL)weather?q=\(formattedCity)&units=metric&appid=\(K.apiKey)"
  
             fetchData(from: urlString)
         } else if let location = locationManager.currentLocation {
             // Fetch weather by current location coordinates
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-            let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=metric&appid=\(apiKey)"
+            let urlString = "\(K.baseURL)weather?lat=\(lat)&lon=\(lon)&units=metric&appid=\(K.apiKey)"
             print(urlString,"meri")
             fetchData(from: urlString)
         } else {

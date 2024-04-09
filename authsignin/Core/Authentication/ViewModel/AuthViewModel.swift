@@ -99,4 +99,32 @@ class AuthViewModel: ObservableObject {
         self.currentUser = try? snapshot.data(as: User.self)
 
     }
+    
+    func deleteLocation(named name: String) async {
+        guard let userId = userSession?.uid else { return }
+
+        let query = Firestore.firestore().collection("locations")
+            .whereField("name", isEqualTo: name)
+            .whereField("userId", isEqualTo: userId)
+
+        let snapshot = try? await query.getDocuments()
+        guard let documents = snapshot?.documents else {
+            print("No documents found for deletion")
+            return
+        }
+
+        for document in documents {
+            document.reference.delete { error in
+                if let error = error {
+                    print("Error deleting document: \(error)")
+                } else {
+                    print("Document successfully removed!")
+                    Task {
+                        await self.fetchLocations() // Refresh the locations list
+                    }
+                }
+            }
+        }
+    }
+
 }
