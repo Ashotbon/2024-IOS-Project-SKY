@@ -58,3 +58,7 @@ working on connectivity of database
 .changes on the edit location will effect on the sidemenu list
 09/04/2024
 .to make a forgot password page
+10/04/2024
+.forgot password page
+.finish the project
+.prepare a presentation, submit 
