@@ -100,6 +100,16 @@ class AuthViewModel: ObservableObject {
 
     }
     
+    func forgetPassword(withEmail email: String) async {
+          do {
+              try await Auth.auth().sendPasswordReset(withEmail: email)
+              // Optionally, handle any user feedback or navigation here
+              print("Password reset email sent.")
+          } catch {
+              print("Error sending password reset email: \(error.localizedDescription)")
+          }
+      }
+    
     func deleteLocation(named name: String) async {
         guard let userId = userSession?.uid else { return }
 
@@ -114,17 +124,15 @@ class AuthViewModel: ObservableObject {
         }
 
         for document in documents {
-            document.reference.delete { error in
-                if let error = error {
-                    print("Error deleting document: \(error)")
-                } else {
-                    print("Document successfully removed!")
-                    Task {
-                        await self.fetchLocations() // Refresh the locations list
-                    }
-                }
-            }
-        }
+                  do {
+                      try await document.reference.delete()
+                      print("Document successfully removed!")
+                  } catch {
+                      print("Error deleting document: \(error)")
+                  }
+              }
+              
+              await fetchLocations()
     }
 
 }

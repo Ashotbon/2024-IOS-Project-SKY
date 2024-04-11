@@ -65,7 +65,7 @@ struct ContentView: View {
  
     
     private func backgroundImageName(for icon: String?) -> String {
-//        print(icon,weather,"icon")
+        print(icon,weather,"icon")
           guard let icon = icon else { return "04d1" }
           return "\(icon)1"
       }
@@ -74,8 +74,7 @@ struct ContentView: View {
     
         GeometryReader { geometry in
             ZStack {
-//                LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .top, endPoint: .bottom)
-//                  
+                  
  
                 if let icon = weather?.weather.first?.icon {
                               Image(backgroundImageName(for: icon))

@@ -37,6 +37,7 @@
 		7AC7C13F2BBCD8FA00DEAAEC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C13E2BBCD8FA00DEAAEC /* Location.swift */; };
 		7AC7C1422BBE2BC900DEAAEC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C1412BBE2BC900DEAAEC /* LocationManager.swift */; };
 		7AC7C1442BC358F500DEAAEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C1432BC358F500DEAAEC /* Constants.swift */; };
+		7AC7C1462BC78A3E00DEAAEC /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7C1452BC78A3E00DEAAEC /* ResetPasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		7AC7C1402BBE2A7C00DEAAEC /* -024-IOS-Project-SKY-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-024-IOS-Project-SKY-Info.plist"; sourceTree = "<group>"; };
 		7AC7C1412BBE2BC900DEAAEC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7AC7C1432BC358F500DEAAEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7AC7C1452BC78A3E00DEAAEC /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				7A070F1D2BADE2F8005E40CF /* Loginview.swift */,
 				7A070F212BADFDD7005E40CF /* RegistrationView.swift */,
+				7AC7C1452BC78A3E00DEAAEC /* ResetPasswordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				7AC7C13F2BBCD8FA00DEAAEC /* Location.swift in Sources */,
 				7A070F202BADED02005E40CF /* Inputview.swift in Sources */,
 				7A070EEE2BADDEAF005E40CF /* ContentView1.swift in Sources */,
+				7AC7C1462BC78A3E00DEAAEC /* ResetPasswordView.swift in Sources */,
 				7A070EEC2BADDEAF005E40CF /* authsigninApp.swift in Sources */,
 				7AC2890F2BB24F5800E6DFDF /* AddLocationView.swift in Sources */,
 				7AC7C1422BBE2BC900DEAAEC /* LocationManager.swift in Sources */,
