@@ -63,13 +63,33 @@ struct ContentView: View {
         return formatter
     }()
  
+    
+    private func backgroundImageName(for icon: String?) -> String {
+//        print(icon,weather,"icon")
+          guard let icon = icon else { return "04d1" }
+          return "\(icon)1"
+      }
+    
     var body: some View {
     
         GeometryReader { geometry in
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
+//                LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .top, endPoint: .bottom)
+//                  
  
+                if let icon = weather?.weather.first?.icon {
+                              Image(backgroundImageName(for: icon))
+//                                  .resizable()
+//                                  .aspectRatio(contentMode: .fill)
+//                                  .edgesIgnoringSafeArea(.all)
+//                    
+                                  .resizable() // Make the image resizable
+                                                  .aspectRatio(contentMode: .fill) // Maintain the aspect ratio and fill the available space
+                                                  .frame(width: geometry.size.width) // Match the frame size to the geometry
+                                                  .edgesIgnoringSafeArea(.all) // Allow the image to extend into the safe area
+
+                          }
+                 
                 VStack {
                     HStack {
                         Button(action: {
@@ -135,18 +155,30 @@ struct ContentView: View {
                             }
                         }
                     }
+
                 }
 
          
+//                if showingSideMenu {
+////                                  SideMenuView(isShowing: $showingSideMenu)
+//                    SideMenuView(isShowing: $showingSideMenu, selectedCity: $selectedCity)
+//                               .onChange(of: selectedCity) { newValue in
+//                                   city = newValue
+//                                   fetchWeatherData(cityName: newValue)
+//                               }
+//               }
+                
                 if showingSideMenu {
-//                                  SideMenuView(isShowing: $showingSideMenu)
                     SideMenuView(isShowing: $showingSideMenu, selectedCity: $selectedCity)
-                               .onChange(of: selectedCity) { newValue in
-                                   city = newValue
-                                   fetchWeatherData(cityName: newValue)
-                               }
-                              }
+                        .onChange(of: selectedCity) { oldValue, newValue in
+                            city = newValue
+                            fetchWeatherData(cityName: newValue)
+                        }
+                }
+
+                
             }
+            
             .onAppear {
                 locationManager.start()
                 fetchWeatherData()
@@ -260,3 +292,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+

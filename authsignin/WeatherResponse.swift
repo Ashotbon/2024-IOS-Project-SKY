@@ -21,6 +21,7 @@ struct WeatherResponse: Codable {
 
     struct Weather: Codable {
         var main: String
+        var icon: String
     }
 
     struct Hourly: Codable {
